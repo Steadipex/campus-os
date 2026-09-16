@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final timetableRepositoryProvider = Provider<TimetableRepository>(
   (ref) => const TimetableRepository(),
 );
-final mondayTimetableProvider = FutureProvider<List<TimetableEntry>>(
-  (ref) => ref.watch(timetableRepositoryProvider).getEntriesForDay('Monday'),
+
+final timetableProvider = FutureProvider.family<List<TimetableEntry>, String>(
+  (ref, day) => ref.watch(timetableRepositoryProvider).getEntriesForDay(day),
 );
