@@ -1,16 +1,16 @@
-import 'package:campus_os/features/timetable/presentation/timetable_screen.dart';
+import 'package:campus_os/core/shell/app_shell.dart';
 import 'package:go_router/go_router.dart';
 
 abstract final class AppRoute {
-  static const timetable = '/';
+  static const home = '/';
 }
 
 final appRouter = GoRouter(
-  initialLocation: AppRoute.timetable,
+  initialLocation: AppRoute.home,
   routes: [
     GoRoute(
-      path: AppRoute.timetable,
-      builder: (context, state) => const TimetableScreen(),
+      path: AppRoute.home,
+      builder: (context, state) => const AppShell(),
     ),
   ],
 );
